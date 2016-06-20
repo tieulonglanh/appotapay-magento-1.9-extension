@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Appota_AppotaPay>
+      <version>1.0.0.0</version>
+    </Appota_AppotaPay>
+  </modules>
+ 
+  <global>
+        
+    <helpers>
+      <appotapay>
+        <class>Appota_AppotaPay_Helper</class>
+      </appotapay>
+    </helpers>
+ 
+    <blocks>
+      <appotapay>
+        <class>Appota_AppotaPay_Block</class>
+      </appotapay>
+    </blocks>
+         
+    <models>
+      <appotapay>
+        <class>Appota_AppotaPay_Model</class>
+      </appotapay>
+    </models>
+ 
+    <resources>
+      <appotapay_setup>
+        <setup>
+          <module>Appota_AppotaPay</module>
+        </setup>
+      </appotapay_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <bank>
+        <active>1</active>
+        <model>appotapay/bank</model>
+        <order_status>pending</order_status>
+        <title>Appota iBanking</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </bank>
+      <credit>
+        <active>1</active>
+        <model>appotapay/credit</model>
+        <order_status>pending</order_status>
+        <title>Appota Credit Card</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </credit>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <appotapay>
+        <use>standard</use>
+        <args>
+          <module>Appota_AppotaPay</module>
+          <frontName>appotapay</frontName>
+        </args>
+      </appotapay>
+    </routers>
+  </frontend>
+</config>
